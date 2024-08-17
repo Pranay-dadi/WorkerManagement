@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register2"
+    android:background="@drawable/back2"
+    tools:ignore="ExtraText">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="253dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093"
+        app:srcCompat="@drawable/image1">
+
+    </androidx.appcompat.widget.AppCompatImageView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="351dp"
+        android:layout_height="452dp"
+        android:layout_margin="30dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="351dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="148dp"
+                android:layout_height="52dp"
+
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="129dp"
+                android:fontFamily="@font/bungee"
+                android:text="Register"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/UsernameR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/PasswordR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/UsernameR2">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/PhoneR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:hint="Phone NUmber"
+                android:inputType="number"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PasswordR2">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/NameR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:hint="Name of Organization"
+                android:inputType="text"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/PhoneR2">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/DateR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:hint="DATE OF BIRTH"
+                android:inputType="date"
+                android:textColor="@color/grey"
+                android:textColorHint="@color/grey"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NameR2">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/CreateButtonR2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/lgrey"
+                android:fontFamily="@font/bungee"
+                android:text="REGISTER"
+                android:textColor="@color/grey"
+                android:textSize="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DateR2">
+
+            </Button>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>FrameLayout
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="209dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="188dp"
+        android:fontFamily="@font/bungee"
+        android:text=" WM"
+        android:textColor="@color/grey"
+        android:textSize="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

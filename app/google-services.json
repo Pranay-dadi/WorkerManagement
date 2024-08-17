@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "738846197274",
+    "firebase_url": "https://workermanagement-71b38-default-rtdb.firebaseio.com",
+    "project_id": "workermanagement-71b38",
+    "storage_bucket": "workermanagement-71b38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738846197274:android:4de61f46cb2b95692bb3a3",
+        "android_client_info": {
+          "package_name": "com.example.workermanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnzuTuKSPnYO_fuqPl9Ndlr8PgdLZ73oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
