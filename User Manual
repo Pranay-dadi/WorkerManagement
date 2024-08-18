@@ -1,0 +1,9 @@
+This is a user manual for the application "Worker Management"
+
+The opening screen contains two options which lead to portal for workers and portal for managers.
+
+On clicking the worker portal a login screen for workers is available. If already there is an account people can login using those credentials and if not they can register a new account using the register button. On logging in, a list of jobs or works are available for the worker out of which the worker can access the details of his interested work.
+
+On clicking the manager portal a login screen for managers is available. If already there is an account people can login using those credentials and if not they can register a new account using the register button. On logging in, the manager gets a screen where he can see all the jobs or works posted by him. He can delete the posts by delete button. He can also add posts by using the add button and filling out the required details.
+
+Note - In login screen while entering the credentials, small letters and capital letters appear as capital letters. But, the app is case senstive and small letters, capital letters are stored case sensitively in database.

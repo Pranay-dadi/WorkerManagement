@@ -1,18 +1,10 @@
 package com.example.workermanagement
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.Adapter
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.workermanagement.databinding.ActivityManageBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -30,6 +22,7 @@ class Search : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         recyclerViewSearch = findViewById(R.id.recyclerViewSearch)
+
         recyclerViewSearch.layoutManager = LinearLayoutManager(this)
         recyclerViewSearch.setHasFixedSize(true)
 
