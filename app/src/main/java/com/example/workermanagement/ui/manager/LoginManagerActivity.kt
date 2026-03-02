@@ -29,25 +29,35 @@ class LoginManagerActivity : AppCompatActivity() {
             if (!validateInputs(username, password)) return@setOnClickListener
 
             setLoading(true)
+
             FirebaseRepository.loginManager(
                 username = username,
                 password = password,
                 onSuccess = { manager ->
-                    getSharedPreferences(FirebaseRepository.PREFS_NAME, MODE_PRIVATE).edit()
-                        .putString(FirebaseRepository.KEY_USER_ID, manager.id)
-                        .putString(FirebaseRepository.KEY_USER_TYPE, "manager")
-                        .putString(FirebaseRepository.KEY_USER_NAME, manager.name)
-                        .putString(FirebaseRepository.KEY_ORG_NAME, manager.organizationName)
-                        .apply()
+                    // ✅ FIX: Firebase callbacks fire on a background thread.
+                    //    All UI operations MUST run on the main thread.
+                    runOnUiThread {
+                        getSharedPreferences(FirebaseRepository.PREFS_NAME, MODE_PRIVATE).edit()
+                            .putString(FirebaseRepository.KEY_USER_ID, manager.id)
+                            .putString(FirebaseRepository.KEY_USER_TYPE, "manager")
+                            .putString(FirebaseRepository.KEY_USER_NAME, manager.name)
+                            .putString(FirebaseRepository.KEY_ORG_NAME, manager.organizationName)
+                            .apply()
 
-                    setLoading(false)
-                    startActivity(Intent(this, ManageActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    })
+                        setLoading(false)
+
+                        startActivity(Intent(this, ManageActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        })
+                        finish()
+                    }
                 },
                 onError = { msg ->
-                    setLoading(false)
-                    showError(msg)
+                    // ✅ FIX: Also wrap error callback in runOnUiThread
+                    runOnUiThread {
+                        setLoading(false)
+                        showError(msg)
+                    }
                 }
             )
         }

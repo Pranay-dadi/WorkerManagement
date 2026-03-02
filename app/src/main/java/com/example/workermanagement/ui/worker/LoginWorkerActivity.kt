@@ -18,7 +18,6 @@ class LoginWorkerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginWorkerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         supportActionBar?.hide()
 
         binding.btnBack.setOnClickListener { finish() }
@@ -30,25 +29,35 @@ class LoginWorkerActivity : AppCompatActivity() {
             if (!validateInputs(username, password)) return@setOnClickListener
 
             setLoading(true)
+
             FirebaseRepository.loginWorker(
                 username = username,
                 password = password,
                 onSuccess = { worker ->
-                    // Save session
-                    getSharedPreferences(FirebaseRepository.PREFS_NAME, MODE_PRIVATE).edit()
-                        .putString(FirebaseRepository.KEY_USER_ID, worker.id)
-                        .putString(FirebaseRepository.KEY_USER_TYPE, "worker")
-                        .putString(FirebaseRepository.KEY_USER_NAME, worker.fullName.ifEmpty { worker.username })
-                        .apply()
+                    // ✅ FIX: Firebase callbacks fire on a background thread.
+                    //    All UI operations (startActivity, setText, setVisibility)
+                    //    MUST be dispatched back to the main thread via runOnUiThread.
+                    runOnUiThread {
+                        getSharedPreferences(FirebaseRepository.PREFS_NAME, MODE_PRIVATE).edit()
+                            .putString(FirebaseRepository.KEY_USER_ID, worker.id)
+                            .putString(FirebaseRepository.KEY_USER_TYPE, "worker")
+                            .putString(FirebaseRepository.KEY_USER_NAME, worker.fullName.ifEmpty { worker.username })
+                            .apply()
 
-                    setLoading(false)
-                    startActivity(Intent(this, SearchActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    })
+                        setLoading(false)
+
+                        startActivity(Intent(this, SearchActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        })
+                        finish()
+                    }
                 },
                 onError = { msg ->
-                    setLoading(false)
-                    showError(msg)
+                    // ✅ FIX: Also wrap error callback in runOnUiThread
+                    runOnUiThread {
+                        setLoading(false)
+                        showError(msg)
+                    }
                 }
             )
         }

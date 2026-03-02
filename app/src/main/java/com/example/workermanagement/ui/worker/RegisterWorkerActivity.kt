@@ -36,12 +36,10 @@ class RegisterWorkerActivity : AppCompatActivity() {
         binding.actvPrimarySkill.setAdapter(
             ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories)
         )
-
         val states = resources.getStringArray(R.array.indian_states)
         binding.actvState.setAdapter(
             ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states)
         )
-
         val wagePref = arrayOf("Daily", "Weekly", "Monthly", "Fixed Contract")
         binding.actvWagePreference.setAdapter(
             ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, wagePref)
@@ -50,15 +48,6 @@ class RegisterWorkerActivity : AppCompatActivity() {
 
     private fun validateForm(): Boolean {
         var valid = true
-        val checks = listOf(
-            binding.etUsername to binding.tilUsername to "Username required",
-            binding.etPassword to binding.tilPassword to "Password required",
-            binding.etFullName to binding.tilFullName to "Full name required",
-            binding.etPhone to binding.tilPhone to "Phone number required",
-            binding.etCity to binding.tilCity to "City required",
-            binding.etPincode to binding.tilPincode to "Pincode required",
-        )
-        // Flatten and validate
         binding.tilUsername.error = if (binding.etUsername.text.isNullOrBlank()) { valid = false; "Username required" } else null
         binding.tilPassword.error = if (binding.etPassword.text.isNullOrBlank()) { valid = false; "Password required" } else null
         binding.tilFullName.error = if (binding.etFullName.text.isNullOrBlank()) { valid = false; "Full name required" } else null
@@ -81,50 +70,56 @@ class RegisterWorkerActivity : AppCompatActivity() {
     private fun submitRegistration() {
         setLoading(true)
         val worker = WorkerData(
-            username = binding.etUsername.text.toString().trim().lowercase(),
-            password = binding.etPassword.text.toString(),
-            fullName = binding.etFullName.text.toString().trim(),
-            phone = binding.etPhone.text.toString().trim(),
-            email = binding.etEmail.text.toString().trim(),
-            dateOfBirth = binding.etDob.text.toString().trim(),
-            gender = when (binding.rgGender.checkedRadioButtonId) {
-                R.id.rbMale -> "Male"
+            username           = binding.etUsername.text.toString().trim().lowercase(),
+            password           = binding.etPassword.text.toString(),
+            fullName           = binding.etFullName.text.toString().trim(),
+            phone              = binding.etPhone.text.toString().trim(),
+            email              = binding.etEmail.text.toString().trim(),
+            dateOfBirth        = binding.etDob.text.toString().trim(),
+            gender             = when (binding.rgGender.checkedRadioButtonId) {
+                R.id.rbMale   -> "Male"
                 R.id.rbFemale -> "Female"
-                else -> "Other"
+                else          -> "Other"
             },
-            address = binding.etAddress.text.toString().trim(),
-            city = binding.etCity.text.toString().trim(),
-            state = binding.actvState.text.toString().trim(),
-            pincode = binding.etPincode.text.toString().trim(),
-            aadharNumber = binding.etAadhar.text.toString().trim(),
-            primarySkill = binding.actvPrimarySkill.text.toString().trim(),
-            skills = binding.etSkills.text.toString().trim(),
-            experienceYears = binding.etExperience.text.toString().toIntOrNull() ?: 0,
-            expectedWage = binding.etExpectedWage.text.toString().trim(),
-            preferredWageType = binding.actvWagePreference.text.toString().trim().lowercase(),
-            willingToRelocate = binding.cbRelocate.isChecked,
-            hasAadhar = binding.etAadhar.text.toString().length == 12,
-            hasBankAccount = binding.cbBankAccount.isChecked,
-            bankAccountNumber = binding.etBankAccount.text.toString().trim(),
-            ifscCode = binding.etIfsc.text.toString().trim().uppercase()
+            address            = binding.etAddress.text.toString().trim(),
+            city               = binding.etCity.text.toString().trim(),
+            state              = binding.actvState.text.toString().trim(),
+            pincode            = binding.etPincode.text.toString().trim(),
+            aadharNumber       = binding.etAadhar.text.toString().trim(),
+            primarySkill       = binding.actvPrimarySkill.text.toString().trim(),
+            skills             = binding.etSkills.text.toString().trim(),
+            experienceYears    = binding.etExperience.text.toString().toIntOrNull() ?: 0,
+            expectedWage       = binding.etExpectedWage.text.toString().trim(),
+            preferredWageType  = binding.actvWagePreference.text.toString().trim().lowercase(),
+            willingToRelocate  = binding.cbRelocate.isChecked,
+            hasAadhar          = binding.etAadhar.text.toString().length == 12,
+            hasBankAccount     = binding.cbBankAccount.isChecked,
+            bankAccountNumber  = binding.etBankAccount.text.toString().trim(),
+            ifscCode           = binding.etIfsc.text.toString().trim().uppercase()
         )
 
         FirebaseRepository.registerWorker(
             worker = worker,
             onSuccess = {
-                setLoading(false)
-                Snackbar.make(binding.root, "Registration successful! Please log in.", Snackbar.LENGTH_LONG).show()
-                startActivity(Intent(this, LoginWorkerActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                })
-                finish()
+                // ✅ FIX: runOnUiThread — Firebase callbacks fire on a background thread
+                runOnUiThread {
+                    setLoading(false)
+                    Snackbar.make(binding.root, "Registration successful! Please log in.", Snackbar.LENGTH_LONG).show()
+                    startActivity(Intent(this, LoginWorkerActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    })
+                    finish()
+                }
             },
             onError = { msg ->
-                setLoading(false)
-                Snackbar.make(binding.root, msg, Snackbar.LENGTH_LONG)
-                    .setBackgroundTint(getColor(R.color.error))
-                    .setTextColor(getColor(R.color.white))
-                    .show()
+                // ✅ FIX: runOnUiThread — Firebase callbacks fire on a background thread
+                runOnUiThread {
+                    setLoading(false)
+                    Snackbar.make(binding.root, msg, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getColor(R.color.error))
+                        .setTextColor(getColor(R.color.white))
+                        .show()
+                }
             }
         )
     }
