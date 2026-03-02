@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="@color/primary">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:padding="16dp" android:paddingTop="44dp" android:paddingBottom="16dp">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="40dp" android:layout_height="40dp"
+                android:background="@drawable/bg_circle_outline_light" android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back"
+                app:tint="@color/white" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Employer Registration" android:textColor="@color/white"
+                    android:textSize="20sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Create your employer account" android:textColor="#80FFFFFF" android:textSize="12sp" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:indeterminateTint="@color/accent" android:visibility="gone" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Account -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔐 ACCOUNT" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" android:layout_marginTop="4dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilUsername"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Username *" android:layout_marginBottom="12dp"
+                        app:startIconDrawable="@drawable/ic_person">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUsername"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textNoSuggestions" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPassword"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Password *" android:layout_marginEnd="8dp"
+                            app:passwordToggleEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilConfirmPassword"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Confirm *" app:passwordToggleEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etConfirmPassword"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Personal -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="👤 PERSONAL INFO" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilName"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Your Full Name *" android:layout_marginBottom="12dp"
+                        app:startIconDrawable="@drawable/ic_person">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etName"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPersonName|textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPhone"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Phone *" android:layout_marginEnd="8dp" app:prefixText="+91 ">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPhone"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone" android:maxLength="10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Alt Phone">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAltPhone"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone" android:maxLength="10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                        android:hint="Email" app:startIconDrawable="@drawable/ic_email">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp"
+                        android:hint="Date of Birth" app:startIconDrawable="@drawable/ic_calendar">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDob"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:hint="DD/MM/YYYY" android:inputType="datetime" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Organization -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🏢 ORGANIZATION" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilOrgName"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Organization Name *" android:layout_marginBottom="12dp">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOrgName"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Organization Type" android:layout_marginBottom="12dp">
+                        <AutoCompleteTextView android:id="@+id/actvOrgType" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Organization Address" android:layout_marginBottom="12dp">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etOrgAddress"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilCity"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="City *" android:layout_marginEnd="8dp">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCity"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapWords" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPincode"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Pincode *">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPincode"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" android:maxLength="6" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:hint="State">
+                        <AutoCompleteTextView android:id="@+id/actvState" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="12dp">
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                            android:hint="GST Number" android:layout_marginEnd="8dp">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etGst"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapCharacters" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                            android:hint="Reg. Number">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etRegNo"
+                                android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textCapCharacters" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:hint="Website (optional)">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etWebsite"
+                            android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnRegister"
+                android:layout_width="match_parent" android:layout_height="60dp"
+                android:layout_marginBottom="32dp" android:text="CREATE EMPLOYER ACCOUNT"
+                android:textSize="16sp" android:textStyle="bold" android:textColor="@color/text_on_accent"
+                app:backgroundTint="@color/accent" app:cornerRadius="14dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

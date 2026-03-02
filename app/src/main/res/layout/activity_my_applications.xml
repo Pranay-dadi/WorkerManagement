@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:background="@color/primary">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:padding="16dp" android:paddingTop="44dp" android:paddingBottom="16dp">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="40dp" android:layout_height="40dp"
+                android:background="@drawable/bg_circle_outline_light" android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back"
+                app:tint="@color/white" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="My Applications" android:textColor="@color/white"
+                    android:textSize="20sp" android:textStyle="bold" />
+                <TextView android:id="@+id/tvCount" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textColor="#80FFFFFF" android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center"
+            android:layout_margin="32dp" android:indeterminateTint="@color/accent" android:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvApplications"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:paddingHorizontal="12dp" android:paddingTop="8dp" android:paddingBottom="24dp"
+            android:clipToPadding="false" />
+
+        <LinearLayout android:id="@+id/layoutEmpty" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical"
+            android:gravity="center" android:padding="48dp" android:visibility="gone">
+            <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                android:src="@drawable/ic_assignment" android:alpha="0.3" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="No applications yet" android:textSize="18sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Browse jobs and apply to get started"
+                android:textSize="14sp" android:textColor="@color/text_hint"
+                android:gravity="center" android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

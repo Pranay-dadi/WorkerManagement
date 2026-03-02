@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:paddingTop="44dp"
+            android:paddingBottom="16dp">
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle_outline_light"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="Back"
+                app:tint="@color/white" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Worker Registration" android:textColor="@color/white"
+                    android:textSize="20sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Create your worker account" android:textColor="#80FFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+            <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:indeterminateTint="@color/accent"
+                android:visibility="gone" />
+        </LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- SECTION: Account -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🔐 ACCOUNT" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp" android:layout_marginTop="4dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilUsername"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Username *" android:layout_marginBottom="12dp"
+                        app:helperText="Lowercase letters, no spaces" app:startIconDrawable="@drawable/ic_person">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etUsername"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textNoSuggestions" android:imeOptions="actionNext" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPassword"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Password *" android:layout_marginEnd="8dp"
+                            app:passwordToggleEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilConfirmPassword"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Confirm *" app:passwordToggleEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etConfirmPassword"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="textPassword" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECTION: Personal -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="👤 PERSONAL INFO" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilFullName"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Full Name *" android:layout_marginBottom="12dp"
+                        app:startIconDrawable="@drawable/ic_person">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etFullName"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textPersonName|textCapWords" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPhone"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Phone *" android:layout_marginEnd="8dp"
+                            app:prefixText="+91 ">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPhone"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="phone" android:maxLength="10" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                            android:hint="Date of Birth" app:startIconDrawable="@drawable/ic_calendar">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etDob"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:hint="DD/MM/YYYY" android:inputType="datetime" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:hint="Email (optional)" app:startIconDrawable="@drawable/ic_email">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Gender" android:textSize="13sp" android:textColor="@color/text_secondary"
+                        android:layout_marginTop="14dp" android:layout_marginBottom="4dp" />
+                    <RadioGroup android:id="@+id/rgGender" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="horizontal">
+                        <RadioButton android:id="@+id/rbMale" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:text="Male" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbFemale" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:text="Female" android:textColor="@color/text_primary" />
+                        <RadioButton android:id="@+id/rbOther" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:text="Other" android:textColor="@color/text_primary" />
+                    </RadioGroup>
+
+                    <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilAadhar"
+                        style="@style/Widget.WM.TextInputLayout" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Aadhar Number *"
+                        app:helperText="12-digit Aadhar number">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAadhar"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="number" android:maxLength="12" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECTION: Location -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📍 LOCATION" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Street Address" android:layout_marginBottom="12dp">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etAddress"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilCity"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="City *" android:layout_marginEnd="8dp">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etCity"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="textCapWords" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilPincode"
+                            style="@style/Widget.WM.TextInputLayout" android:layout_width="0dp" android:layout_weight="1"
+                            android:layout_height="wrap_content" android:hint="Pincode *">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPincode"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number" android:maxLength="6" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:hint="State">
+                        <AutoCompleteTextView android:id="@+id/actvState" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECTION: Work Profile -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="💼 WORK PROFILE" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Primary Skill" android:layout_marginBottom="12dp">
+                        <AutoCompleteTextView android:id="@+id/actvPrimarySkill" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Other Skills" android:layout_marginBottom="12dp"
+                        app:helperText="Comma separated e.g. Welding, Plumbing, Driving">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSkills"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                            android:hint="Experience (yrs)" android:layout_marginEnd="8dp">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etExperience"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number" android:text="0" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                            android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                            android:hint="Expected Wage (₹)" app:prefixText="₹">
+                            <com.google.android.material.textfield.TextInputEditText android:id="@+id/etExpectedWage"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:hint="Preferred Wage Type">
+                        <AutoCompleteTextView android:id="@+id/actvWagePreference" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="none" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.checkbox.MaterialCheckBox android:id="@+id/cbRelocate"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp" android:text="Willing to relocate for work"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- SECTION: Bank -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="🏦 BANK DETAILS (Optional)" android:textColor="@color/accent_dark" android:textSize="12sp"
+                android:textStyle="bold" android:letterSpacing="0.1" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView style="@style/Widget.WM.Card"
+                android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="24dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <com.google.android.material.checkbox.MaterialCheckBox android:id="@+id/cbBankAccount"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="I have a bank account" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="12dp" />
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="Bank Account Number" android:layout_marginBottom="12dp">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etBankAccount"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout style="@style/Widget.WM.TextInputLayout"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:hint="IFSC Code">
+                        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etIfsc"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:inputType="textCapCharacters" android:maxLength="11" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnRegister"
+                android:layout_width="match_parent" android:layout_height="60dp"
+                android:layout_marginBottom="32dp" android:text="CREATE ACCOUNT"
+                android:textSize="17sp" android:textStyle="bold" android:textColor="@color/text_on_accent"
+                app:backgroundTint="@color/accent" app:cornerRadius="14dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

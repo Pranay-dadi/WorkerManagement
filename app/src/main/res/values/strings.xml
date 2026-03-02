@@ -1,5 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WorkerManagement</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Log In</string>
+    <string name="register">Register</string>
+    <string name="logout">Log Out</string>
+    <string name="app_tagline">Connecting Workers with Opportunities</string>
+    <string name="worker_login_title">Worker Login</string>
+    <string name="manager_login_title">Manager Login</string>
+    <string name="no_jobs_found">No jobs found</string>
+    <string name="no_jobs_sub">Try adjusting your filters or search terms</string>
+    <string name="post_job">Post a Job</string>
+    <string name="edit_job">Edit Job</string>
+    <string name="delete_job">Delete Job</string>
+    <string name="apply_now">Apply Now</string>
+    <string name="applied">Applied</string>
+    <string name="view_details">View Details</string>
+    <string name="per_day">/ day</string>
+    <string name="per_week">/ week</string>
+    <string name="per_month">/ month</string>
+
+    <!-- Job Categories -->
+    <string-array name="job_categories">
+        <item>Construction</item>
+        <item>Farming / Agriculture</item>
+        <item>Manufacturing</item>
+        <item>Loading / Unloading</item>
+        <item>Driving / Transport</item>
+        <item>Cleaning / Housekeeping</item>
+        <item>Security / Guard</item>
+        <item>Plumbing</item>
+        <item>Electrical Work</item>
+        <item>Painting</item>
+        <item>Carpentry</item>
+        <item>Masonry</item>
+        <item>Welding / Fabrication</item>
+        <item>Tailoring / Stitching</item>
+        <item>Cooking / Kitchen</item>
+        <item>Shop Assistant</item>
+        <item>Delivery / Courier</item>
+        <item>Packing / Packaging</item>
+        <item>Data Entry</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Organization Types -->
+    <string-array name="organization_types">
+        <item>Construction Company</item>
+        <item>Agriculture / Farm</item>
+        <item>Manufacturing Unit</item>
+        <item>Logistics / Transport</item>
+        <item>Hospitality</item>
+        <item>Retail</item>
+        <item>IT Company</item>
+        <item>Healthcare</item>
+        <item>Real Estate</item>
+        <item>Government</item>
+        <item>NGO</item>
+        <item>Individual / Household</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Indian States -->
+    <string-array name="indian_states">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+        <item>Delhi (NCT)</item>
+        <item>Jammu and Kashmir</item>
+    </string-array>
+
+    <!-- Wage Types -->
+    <string-array name="wage_types">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Fixed Contract</item>
+    </string-array>
+
 </resources>
