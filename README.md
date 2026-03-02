@@ -1,4 +1,4 @@
-<img width="1063" height="2070" alt="Screenshot from 2026-03-02 13-19-12" src="https://github.com/user-attachments/assets/acd93533-3e5a-45e1-907d-47cf327288a5" /><img width="1063" height="2070" alt="Screenshot from 2026-03-02 13-19-12" src="https://github.com/user-attachments/assets/39bab242-6186-442c-a27a-0c0c54cd39da" /># 👷 Worker Management App
+# 👷 Worker Management App
 
 > An industrial-strength Android platform connecting daily-wage workers with job opportunities across India.
 > Apk debug and Apk release files present in root directory
